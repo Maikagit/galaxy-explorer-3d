@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    color: #fff;
+}
+
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 200;
+}
+
+#crosshair::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 2px;
+    background: #00ff00;
+    border-radius: 50%;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #00ff00;
+}
+
+#radar {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.radar-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radar-player {
+    background: #00ff00;
+    width: 6px;
+    height: 6px;
+}
+
+.radar-planet {
+    background: #ffaa00;
+}
+
+.radar-portal {
+    background: #00ffff;
+}
+
+.radar-ship {
+    background: #ff0000;
+}
+
+.radar-ally {
+    background: #00ff00;
+}
+
+.radar-trader {
+    background: #ffff00;
+}
+
+.radar-target {
+    background: #ff00ff;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+#messages {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 300px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 12px;
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #00ff00;
+    font-size: 12px;
+}
+
+.health-bar, .energy-bar, .shield-bar {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #fff;
+    margin: 5px 0;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.health-fill { background: #ff0000; }
+.energy-fill { background: #0000ff; }
+.shield-fill { background: #ffff00; }
+
+.planet-info, .portal-info, .ship-info {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+    z-index: 1000;
+}
+
+#inventory {
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+}
+
+.inventory-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    color: #fff;
+}
+
+#missionPanel {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffaa00;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+}
+
+button {
+    background: #003300;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+}
+
+button:hover {
+    background: #004400;
+}
