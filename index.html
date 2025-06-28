@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Explorer 3D</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="crosshair"></div>
+        
+        <div id="hud">
+            <div>Vaisseau: Explorateur MK-1</div>
+            <div>Crédits: <span id="credits">1000</span></div>
+            <div>Système: <span id="currentSystem">Alpha Centauri</span></div>
+            <button onclick="toggleInventory()" style="margin: 5px 0;">Inventaire (I)</button>
+            <button onclick="toggleMission()" style="margin: 5px 0;">Missions (M)</button>
+            <div style="margin-top: 10px;">
+                <div>Santé:</div>
+                <div class="health-bar"><div id="healthBar" class="bar-fill health-fill" style="width: 100%;"></div></div>
+                <div>Énergie:</div>
+                <div class="energy-bar"><div id="energyBar" class="bar-fill energy-fill" style="width: 100%;"></div></div>
+                <div>Boucliers:</div>
+                <div class="shield-bar"><div id="shieldBar" class="bar-fill shield-fill" style="width: 100%;"></div></div>
+            </div>
+        </div>
+        
+        <div id="controls">
+            <div><strong>CONTRÔLES:</strong></div>
+            <div>A/D: Lacet (Gauche/Droite)</div>
+            <div>W/S: Tangage (Haut/Bas)</div>
+            <div>Q/E: Accélérer/Freiner</div>
+            <div>Z/C: Dérive Gauche/Droite</div>
+            <div>X/V: Dérive Haut/Bas</div>
+            <div>Espace: Tirer</div>
+            <div>R: Réparer</div>
+            <div>I: Inventaire</div>
+            <div>M: Missions</div>
+            <div>Clic: Interagir</div>
+        </div>
+        
+        <div id="radar"></div>
+        
+        <div id="messages">
+            <div style="color: #00ff00;">Bienvenue dans Galaxy Explorer!</div>
+            <div>Explorez les planètes et portails...</div>
+        </div>
+        
+        <div id="inventory">
+            <h4>INVENTAIRE</h4>
+            <div id="inventoryList"></div>
+            <button onclick="toggleInventory()">Fermer</button>
+        </div>
+        
+        <div id="missionPanel">
+            <h4>MISSION ACTIVE</h4>
+            <div id="missionText">Aucune mission active</div>
+            <div id="missionReward"></div>
+            <button onclick="toggleMission()" style="margin-top: 10px;">Fermer</button>
+        </div>
+        
+        <div id="planetInfo" class="planet-info">
+            <h3 id="planetName">Planète Mystère</h3>
+            <p id="planetDesc">Une planète lointaine...</p>
+            <button onclick="startMission()">Mission d'Exploration (500₡)</button>
+            <button onclick="completeMission()" id="completeMissionBtn" style="display: none;">Terminer Mission</button>
+            <button onclick="trade()">Commerce Local</button>
+            <button onclick="closePlanetInfo()">Fermer</button>
+        </div>
+        
+        <div id="portalInfo" class="portal-info">
+            <h3>Portail Galactique</h3>
+            <p>Voyagez vers une galaxie lointaine</p>
+            <button onclick="usePortal()">Voyager (200₡)</button>
+            <button onclick="closePortalInfo()">Fermer</button>
+        </div>
+        
+        <div id="shipInfo" class="ship-info">
+            <h3 id="shipInfoName">Vaisseau</h3>
+            <p id="shipInfoDesc">Description</p>
+            <div id="shipInfoActions"></div>
+            <button onclick="closeShipInfo()">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Scripts du jeu -->
+    <script src="js/config.js"></script>
+    <script src="js/gameState.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/shipModels.js"></script>
+    <script src="js/environment.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/combat.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/missions.js"></script>
+    <script src="js/trading.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
